@@ -109,12 +109,28 @@ export interface UpdateUserRequest {
   level?: "admin" | "kasir" | "gudang";
 }
 
+export interface Cart {
+  id_cart: number;
+  id_pelanggan: number;
+  id_barang: number;
+  jumlah: number;
+  created_at: Date;
+  barang?: Barang;
+}
+
+export interface AddToCartRequest {
+  id_pelanggan: number;
+  id_barang: number;
+  jumlah: number;
+}
+
 export interface Pemesanan {
   id_pemesanan: number;
   id_pelanggan?: number;
   id_user?: number;
   tanggal?: Date;
   status?: string;
+  total?: number;
   pelanggan?: Pelanggan;
   user?: User;
 }
@@ -124,6 +140,7 @@ export interface CreatePemesananRequest {
   id_user?: number;
   tanggal?: Date;
   status?: string;
+  total?: number;
 }
 
 export interface DetailPemesanan {
@@ -209,4 +226,10 @@ export interface CreateDetailPenjualanRequest {
   id_barang: number;
   jumlah?: number;
   harga?: number;
+}
+
+export interface CheckoutRequest {
+  id_pelanggan: number;
+  alamat_pengiriman?: string;
+  catatan?: string;
 }

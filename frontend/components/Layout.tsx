@@ -8,21 +8,23 @@ import {
   UserCheck, 
   ShoppingCart, 
   BarChart3,
-  Store
+  Store,
+  ArrowLeft
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: BarChart3 },
-  { name: "Barang", href: "/barang", icon: Package },
-  { name: "Distributor", href: "/distributors", icon: Truck },
-  { name: "Pelanggan", href: "/pelanggan", icon: Users },
-  { name: "Kurir", href: "/kurir", icon: UserCheck },
-  { name: "Users", href: "/users", icon: Users },
-  { name: "Penjualan", href: "/penjualan", icon: ShoppingCart },
+  { name: "Dashboard", href: "/admin", icon: BarChart3 },
+  { name: "Barang", href: "/admin/barang", icon: Package },
+  { name: "Distributor", href: "/admin/distributors", icon: Truck },
+  { name: "Pelanggan", href: "/admin/pelanggan", icon: Users },
+  { name: "Kurir", href: "/admin/kurir", icon: UserCheck },
+  { name: "Users", href: "/admin/users", icon: Users },
+  { name: "Penjualan", href: "/admin/penjualan", icon: ShoppingCart },
 ];
 
 export default function Layout({ children }: LayoutProps) {
@@ -36,8 +38,12 @@ export default function Layout({ children }: LayoutProps) {
           <div className="p-6">
             <div className="flex items-center space-x-2">
               <Store className="h-8 w-8 text-blue-600" />
-              <h1 className="text-xl font-bold text-gray-900">Toko Management</h1>
+              <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
             </div>
+            <Link to="/" className="mt-4 inline-flex items-center text-sm text-gray-600 hover:text-gray-900">
+              <ArrowLeft className="h-4 w-4 mr-1" />
+              Back to Store
+            </Link>
           </div>
           <nav className="mt-6">
             <div className="px-3">
